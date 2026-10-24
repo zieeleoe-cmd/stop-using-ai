@@ -1,247 +1,956 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="id">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Juan Suryadharma Kudacuki — Portfolio</title>
-<meta name="description" content="Portfolio Juan Suryadharma Kudacuki — Web Developer & UI Designer">
-<!-- Font Awesome Real Logos -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-<style>
-*{margin:0;padding:0;box-sizing:border-box}
-:root{--bg:#0f1115;--card:#171a21;--card2:#1d212b;--text:#f5f7fa;--muted:#9aa3b2;--line:#242936;--accent:#facc15;--accent2:#2563eb}
-body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);line-height:1.6;overflow-x:hidden}
-a{text-decoration:none;color:inherit}
-.container{width:min(1180px,92%);margin:0 auto}
-/* NAV */
-header{position:fixed;top:0;left:0;right:0;z-index:50;background:rgba(15,17,21,.9);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
-.nav{height:72px;display:flex;align-items:center;justify-content:space-between}
-.logo{font-family:'Plus Jakarta Sans';font-weight:800;font-size:22px;letter-spacing:-.5px}
-.logo span{color:var(--accent)}
-.logo i{color:var(--accent);margin-right:8px}
-.nav-links{display:flex;gap:32px;font-size:14px;font-weight:500;color:var(--muted)}
-.nav-links a:hover{color:#fff}
-.btn{display:inline-flex;align-items:center;gap:8px;padding:12px 20px;border-radius:999px;font-weight:600;font-size:14px;border:1px solid transparent;transition:.2s}
-.btn-primary{background:var(--accent);color:#111}
-.btn-primary:hover{transform:translateY(-2px)}
-.btn-outline{border-color:#2e3446;color:#fff;background:transparent}
-.btn-outline:hover{border-color:var(--accent);color:var(--accent)}
-.nav-cta{display:flex;gap:10px;align-items:center}
-.burger{display:none;font-size:22px}
-/* HERO */
-.hero{padding:150px 0 80px;background:radial-gradient(800px 400px at 80% 0%,rgba(250,204,21,.14),transparent 60%),radial-gradient(600px 300px at 10% 20%,rgba(37,99,235,.18),transparent 60%)}
-.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:50px;align-items:center}
-.badge{display:inline-flex;gap:8px;align-items:center;background:#1c1f28;border:1px solid var(--line);padding:7px 12px;border-radius:999px;font-size:13px;color:#d1d5db}
-.badge i{color:#22c55e}
-.hero h1{font-family:'Plus Jakarta Sans';font-size:56px;line-height:1.02;letter-spacing:-1.5px;margin:18px 0 14px}
-.hero h1 span{color:var(--accent)}
-.hero p{color:var(--muted);font-size:17px;max-width:560px}
-.hero-actions{display:flex;gap:12px;margin:26px 0 22px;flex-wrap:wrap}
-.socials{display:flex;gap:10px}
-.socials a{width:42px;height:42px;display:grid;place-items:center;border:1px solid var(--line);border-radius:50%;background:var(--card);font-size:18px}
-.socials a:hover{transform:translateY(-2px)}
-.fa-instagram{color:#e1306c}.fa-github{color:#fff}.fa-linkedin{color:#0a66c2}.fa-whatsapp{color:#25d366}.fa-dribbble{color:#ea4c89}
-.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:28px}
-.stat{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px}
-.stat b{font-family:'Plus Jakarta Sans';font-size:24px;display:block}
-.stat span{font-size:13px;color:var(--muted)}
-.hero-photo{position:relative}
-.photo-card{background:linear-gradient(180deg,#1e232f,#14171e);border:1px solid var(--line);border-radius:28px;padding:14px;transform:rotate(2deg)}
-.photo-card img{width:100%;height:520px;object-fit:cover;border-radius:20px;display:block;background:#222}
-.photo-info{display:flex;justify-content:space-between;align-items:center;padding:14px 4px 4px}
-.photo-info b{font-family:'Plus Jakarta Sans'}
-.photo-info span{display:block;font-size:13px;color:var(--muted)}
-.avail{background:#dcfce7;color:#166534;padding:6px 10px;border-radius:999px;font-size:12px;font-weight:700}
-.float{position:absolute;background:#fff;color:#111;border-radius:14px;padding:10px 12px;display:flex;gap:10px;align-items:center;box-shadow:0 20px 40px rgba(0,0,0,.35);font-size:13px;font-weight:600}
-.float1{top:22px;left:-18px}.float2{bottom:96px;right:-10px}
-.float i{font-size:20px}
-/* SECTION */
-section{padding:80px 0}
-.sec-head{margin-bottom:32px}
-.sec-head small{letter-spacing:.18em;text-transform:uppercase;color:var(--accent);font-weight:700;font-size:12px}
-.sec-head h2{font-family:'Plus Jakarta Sans';font-size:36px;letter-spacing:-.8px;margin-top:6px}
-.sec-head p{color:var(--muted);max-width:640px;margin-top:8px}
-.grid2{display:grid;grid-template-columns:1fr 1fr;gap:22px}
-.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-.card{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:22px}
-.card h3{font-family:'Plus Jakarta Sans';margin:10px 0 6px}
-.card p{color:var(--muted);font-size:14.5px}
-.icon{width:48px;height:48px;border-radius:12px;display:grid;place-items:center;background:#222633;font-size:22px}
-/* SKILLS */
-.skill{display:flex;align-items:center;gap:14px;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px}
-.skill i{font-size:36px;width:44px;text-align:center}
-.skill b{display:block;font-family:'Plus Jakarta Sans'}
-.skill span{font-size:13px;color:var(--muted)}
-.fa-html5{color:#e34f26}.fa-css3-alt{color:#1572b6}.fa-js{color:#f7df1e}.fa-react{color:#61dafb}.fa-node-js{color:#339933}.fa-python{color:#3776ab}.fa-git-alt{color:#f05032}.fa-figma{color:#f24e1e}.fa-bootstrap{color:#7952b3}
-/* PROJECTS */
-.project{overflow:hidden;padding:0}
-.project-top{height:190px;display:grid;place-items:center;font-size:52px}
-.p1{background:linear-gradient(135deg,#1d4ed8,#06b6d4)} .p2{background:linear-gradient(135deg,#7c3aed,#ec4899)} .p3{background:linear-gradient(135deg,#059669,#84cc16)}
-.project-body{padding:20px}
-.tags{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
-.tags span{font-size:12px;background:#232836;border:1px solid var(--line);padding:5px 9px;border-radius:999px;color:#cbd5e1}
-/* TIMELINE */
-.timeline{display:grid;gap:14px}
-.t-item{display:flex;gap:16px;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px}
-.t-item i{width:42px;height:42px;flex:0 0 42px;display:grid;place-items:center;border-radius:50%;background:#222633;color:var(--accent)}
-.t-item span{color:var(--muted);font-size:13px}
-/* CONTACT */
-.contact{background:linear-gradient(135deg,#facc15,#f59e0b);color:#111;border-radius:24px;padding:36px;display:grid;grid-template-columns:1.2fr .8fr;gap:24px;align-items:center}
-.contact h2{font-family:'Plus Jakarta Sans';font-size:32px;line-height:1.1}
-.contact p{opacity:.85;margin-top:8px}
-.contact .btn{background:#111;color:#fff}
-.info-list{display:grid;gap:10px}
-.info-list div{background:rgba(255,255,255,.85);padding:12px 14px;border-radius:12px;display:flex;gap:10px;align-items:center;font-weight:600;font-size:14px}
-footer{padding:28px 0;border-top:1px solid var(--line);color:var(--muted);font-size:14px}
-.foot{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
-@media(max-width:900px){.hero-grid,.grid2,.grid3,.contact{grid-template-columns:1fr}.hero h1{font-size:42px}.nav-links{display:none}.burger{display:block}.photo-card img{height:420px}.float1{left:6px}.float2{right:6px}}
-</style>
-</head>
-<body>
-
-<header>
-  <div class="container nav">
-    <a href="#" class="logo"><i class="fa-solid fa-code"></i>Juan<span>.</span></a>
-    <nav class="nav-links">
-      <a href="#beranda">Beranda</a><a href="#tentang">Tentang</a><a href="#keahlian">Keahlian</a><a href="#project">Project</a><a href="#pengalaman">Pengalaman</a><a href="#kontak">Kontak</a>
-    </nav>
-    <div class="nav-cta">
-      <a href="#kontak" class="btn btn-primary">Hire Me <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
-      <span class="burger"><i class="fa-solid fa-bars"></i></span>
-    </div>
-  </div>
-</header>
-
-<!-- HERO -->
-<div class="hero" id="beranda">
-  <div class="container hero-grid">
-    <div>
-      <span class="badge"><i class="fa-solid fa-circle"></i> Tersedia untuk Project & Freelance</span>
-      <h1>Halo, Saya<br>Juan Suryadharma<span>.</span><br>Web Developer &<br>UI Designer.</h1>
-      <p>Saya membantu brand & bisnis membangun website yang cepat, modern, dan enak dilihat — dari landing page, company profile, sampai web app. Fokus di tampilan rapi, pengalaman pengguna, dan hasil yang siap dipakai.</p>
-      <div class="hero-actions">
-        <a href="#project" class="btn btn-primary"><i class="fa-solid fa-briefcase"></i> Lihat Portfolio</a>
-        <a href="#kontak" class="btn btn-outline"><i class="fa-solid fa-paper-plane"></i> Hubungi Saya</a>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Juan Suryadharma Kudacuki — Portfolio</title>
+    <meta
+      name="description"
+      content="Portfolio Juan Suryadharma Kudacuki — Web Developer & UI Designer"
+    />
+    <!-- Font Awesome Real Logos -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      :root {
+        --bg: #0f1115;
+        --card: #171a21;
+        --card2: #1d212b;
+        --text: #f5f7fa;
+        --muted: #9aa3b2;
+        --line: #242936;
+        --accent: #facc15;
+        --accent2: #2563eb;
+      }
+      body {
+        font-family: "Inter", sans-serif;
+        background: var(--bg);
+        color: var(--text);
+        line-height: 1.6;
+        overflow-x: hidden;
+      }
+      a {
+        text-decoration: none;
+        color: inherit;
+      }
+      .container {
+        width: min(1180px, 92%);
+        margin: 0 auto;
+      }
+      /* NAV */
+      header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 50;
+        background: rgba(15, 17, 21, 0.9);
+        backdrop-filter: blur(14px);
+        border-bottom: 1px solid var(--line);
+      }
+      .nav {
+        height: 72px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .logo {
+        font-family: "Plus Jakarta Sans";
+        font-weight: 800;
+        font-size: 22px;
+        letter-spacing: -0.5px;
+      }
+      .logo span {
+        color: var(--accent);
+      }
+      .logo i {
+        color: var(--accent);
+        margin-right: 8px;
+      }
+      .nav-links {
+        display: flex;
+        gap: 32px;
+        font-size: 14px;
+        font-weight: 500;
+        color: var(--muted);
+      }
+      .nav-links a:hover {
+        color: #fff;
+      }
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 12px 20px;
+        border-radius: 999px;
+        font-weight: 600;
+        font-size: 14px;
+        border: 1px solid transparent;
+        transition: 0.2s;
+      }
+      .btn-primary {
+        background: var(--accent);
+        color: #111;
+      }
+      .btn-primary:hover {
+        transform: translateY(-2px);
+      }
+      .btn-outline {
+        border-color: #2e3446;
+        color: #fff;
+        background: transparent;
+      }
+      .btn-outline:hover {
+        border-color: var(--accent);
+        color: var(--accent);
+      }
+      .nav-cta {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+      }
+      .burger {
+        display: none;
+        font-size: 22px;
+      }
+      /* HERO */
+      .hero {
+        padding: 150px 0 80px;
+        background:
+          radial-gradient(
+            800px 400px at 80% 0%,
+            rgba(250, 204, 21, 0.14),
+            transparent 60%
+          ),
+          radial-gradient(
+            600px 300px at 10% 20%,
+            rgba(37, 99, 235, 0.18),
+            transparent 60%
+          );
+      }
+      .hero-grid {
+        display: grid;
+        grid-template-columns: 1.15fr 0.85fr;
+        gap: 50px;
+        align-items: center;
+      }
+      .badge {
+        display: inline-flex;
+        gap: 8px;
+        align-items: center;
+        background: #1c1f28;
+        border: 1px solid var(--line);
+        padding: 7px 12px;
+        border-radius: 999px;
+        font-size: 13px;
+        color: #d1d5db;
+      }
+      .badge i {
+        color: #22c55e;
+      }
+      .hero h1 {
+        font-family: "Plus Jakarta Sans";
+        font-size: 56px;
+        line-height: 1.02;
+        letter-spacing: -1.5px;
+        margin: 18px 0 14px;
+      }
+      .hero h1 span {
+        color: var(--accent);
+      }
+      .hero p {
+        color: var(--muted);
+        font-size: 17px;
+        max-width: 560px;
+      }
+      .hero-actions {
+        display: flex;
+        gap: 12px;
+        margin: 26px 0 22px;
+        flex-wrap: wrap;
+      }
+      .socials {
+        display: flex;
+        gap: 10px;
+      }
+      .socials a {
+        width: 42px;
+        height: 42px;
+        display: grid;
+        place-items: center;
+        border: 1px solid var(--line);
+        border-radius: 50%;
+        background: var(--card);
+        font-size: 18px;
+      }
+      .socials a:hover {
+        transform: translateY(-2px);
+      }
+      .fa-instagram {
+        color: #e1306c;
+      }
+      .fa-github {
+        color: #fff;
+      }
+      .fa-linkedin {
+        color: #0a66c2;
+      }
+      .fa-whatsapp {
+        color: #25d366;
+      }
+      .fa-dribbble {
+        color: #ea4c89;
+      }
+      .stats {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 14px;
+        margin-top: 28px;
+      }
+      .stat {
+        background: var(--card);
+        border: 1px solid var(--line);
+        border-radius: 16px;
+        padding: 16px;
+      }
+      .stat b {
+        font-family: "Plus Jakarta Sans";
+        font-size: 24px;
+        display: block;
+      }
+      .stat span {
+        font-size: 13px;
+        color: var(--muted);
+      }
+      .hero-photo {
+        position: relative;
+      }
+      .photo-card {
+        background: linear-gradient(180deg, #1e232f, #14171e);
+        border: 1px solid var(--line);
+        border-radius: 28px;
+        padding: 14px;
+        transform: rotate(2deg);
+      }
+      .photo-card img {
+        width: 100%;
+        height: 520px;
+        object-fit: cover;
+        border-radius: 20px;
+        display: block;
+        background: #222;
+      }
+      .photo-info {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 14px 4px 4px;
+      }
+      .photo-info b {
+        font-family: "Plus Jakarta Sans";
+      }
+      .photo-info span {
+        display: block;
+        font-size: 13px;
+        color: var(--muted);
+      }
+      .avail {
+        background: #dcfce7;
+        color: #166534;
+        padding: 6px 10px;
+        border-radius: 999px;
+        font-size: 12px;
+        font-weight: 700;
+      }
+      .float {
+        position: absolute;
+        background: #fff;
+        color: #111;
+        border-radius: 14px;
+        padding: 10px 12px;
+        display: flex;
+        gap: 10px;
+        align-items: center;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
+        font-size: 13px;
+        font-weight: 600;
+      }
+      .float1 {
+        top: 22px;
+        left: -18px;
+      }
+      .float2 {
+        bottom: 96px;
+        right: -10px;
+      }
+      .float i {
+        font-size: 20px;
+      }
+      /* SECTION */
+      section {
+        padding: 80px 0;
+      }
+      .sec-head {
+        margin-bottom: 32px;
+      }
+      .sec-head small {
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: var(--accent);
+        font-weight: 700;
+        font-size: 12px;
+      }
+      .sec-head h2 {
+        font-family: "Plus Jakarta Sans";
+        font-size: 36px;
+        letter-spacing: -0.8px;
+        margin-top: 6px;
+      }
+      .sec-head p {
+        color: var(--muted);
+        max-width: 640px;
+        margin-top: 8px;
+      }
+      .grid2 {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 22px;
+      }
+      .grid3 {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 18px;
+      }
+      .card {
+        background: var(--card);
+        border: 1px solid var(--line);
+        border-radius: 20px;
+        padding: 22px;
+      }
+      .card h3 {
+        font-family: "Plus Jakarta Sans";
+        margin: 10px 0 6px;
+      }
+      .card p {
+        color: var(--muted);
+        font-size: 14.5px;
+      }
+      .icon {
+        width: 48px;
+        height: 48px;
+        border-radius: 12px;
+        display: grid;
+        place-items: center;
+        background: #222633;
+        font-size: 22px;
+      }
+      /* SKILLS */
+      .skill {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        background: var(--card);
+        border: 1px solid var(--line);
+        border-radius: 16px;
+        padding: 16px;
+      }
+      .skill i {
+        font-size: 36px;
+        width: 44px;
+        text-align: center;
+      }
+      .skill b {
+        display: block;
+        font-family: "Plus Jakarta Sans";
+      }
+      .skill span {
+        font-size: 13px;
+        color: var(--muted);
+      }
+      .fa-html5 {
+        color: #e34f26;
+      }
+      .fa-css3-alt {
+        color: #1572b6;
+      }
+      .fa-js {
+        color: #f7df1e;
+      }
+      .fa-react {
+        color: #61dafb;
+      }
+      .fa-node-js {
+        color: #339933;
+      }
+      .fa-python {
+        color: #3776ab;
+      }
+      .fa-git-alt {
+        color: #f05032;
+      }
+      .fa-figma {
+        color: #f24e1e;
+      }
+      .fa-bootstrap {
+        color: #7952b3;
+      }
+      /* PROJECTS */
+      .project {
+        overflow: hidden;
+        padding: 0;
+      }
+      .project-top {
+        height: 190px;
+        display: grid;
+        place-items: center;
+        font-size: 52px;
+      }
+      .p1 {
+        background: linear-gradient(135deg, #1d4ed8, #06b6d4);
+      }
+      .p2 {
+        background: linear-gradient(135deg, #7c3aed, #ec4899);
+      }
+      .p3 {
+        background: linear-gradient(135deg, #059669, #84cc16);
+      }
+      .project-body {
+        padding: 20px;
+      }
+      .tags {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        margin-top: 12px;
+      }
+      .tags span {
+        font-size: 12px;
+        background: #232836;
+        border: 1px solid var(--line);
+        padding: 5px 9px;
+        border-radius: 999px;
+        color: #cbd5e1;
+      }
+      /* TIMELINE */
+      .timeline {
+        display: grid;
+        gap: 14px;
+      }
+      .t-item {
+        display: flex;
+        gap: 16px;
+        background: var(--card);
+        border: 1px solid var(--line);
+        border-radius: 16px;
+        padding: 18px;
+      }
+      .t-item i {
+        width: 42px;
+        height: 42px;
+        flex: 0 0 42px;
+        display: grid;
+        place-items: center;
+        border-radius: 50%;
+        background: #222633;
+        color: var(--accent);
+      }
+      .t-item span {
+        color: var(--muted);
+        font-size: 13px;
+      }
+      /* CONTACT */
+      .contact {
+        background: linear-gradient(135deg, #facc15, #f59e0b);
+        color: #111;
+        border-radius: 24px;
+        padding: 36px;
+        display: grid;
+        grid-template-columns: 1.2fr 0.8fr;
+        gap: 24px;
+        align-items: center;
+      }
+      .contact h2 {
+        font-family: "Plus Jakarta Sans";
+        font-size: 32px;
+        line-height: 1.1;
+      }
+      .contact p {
+        opacity: 0.85;
+        margin-top: 8px;
+      }
+      .contact .btn {
+        background: #111;
+        color: #fff;
+      }
+      .info-list {
+        display: grid;
+        gap: 10px;
+      }
+      .info-list div {
+        background: rgba(255, 255, 255, 0.85);
+        padding: 12px 14px;
+        border-radius: 12px;
+        display: flex;
+        gap: 10px;
+        align-items: center;
+        font-weight: 600;
+        font-size: 14px;
+      }
+      footer {
+        padding: 28px 0;
+        border-top: 1px solid var(--line);
+        color: var(--muted);
+        font-size: 14px;
+      }
+      .foot {
+        display: flex;
+        justify-content: space-between;
+        gap: 16px;
+        flex-wrap: wrap;
+      }
+      @media (max-width: 900px) {
+        .hero-grid,
+        .grid2,
+        .grid3,
+        .contact {
+          grid-template-columns: 1fr;
+        }
+        .hero h1 {
+          font-size: 42px;
+        }
+        .nav-links {
+          display: none;
+        }
+        .burger {
+          display: block;
+        }
+        .photo-card img {
+          height: 420px;
+        }
+        .float1 {
+          left: 6px;
+        }
+        .float2 {
+          right: 6px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="container nav">
+        <a href="#" class="logo"
+          ><i class="fa-solid fa-code"></i>Juan<span>.</span></a
+        >
+        <nav class="nav-links">
+          <a href="#beranda">Beranda</a><a href="#tentang">Tentang</a
+          ><a href="#keahlian">Keahlian</a><a href="#project">Project</a
+          ><a href="#pengalaman">Pengalaman</a><a href="#kontak">Kontak</a>
+        </nav>
+        <div class="nav-cta">
+          <a href="#kontak" class="btn btn-primary"
+            >Hire Me <i class="fa-solid fa-arrow-up-right-from-square"></i
+          ></a>
+          <span class="burger"><i class="fa-solid fa-bars"></i></span>
+        </div>
       </div>
-      <div class="socials">
-        <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
-        <a href="#" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
-        <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
-        <a href="#" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
-        <a href="#" aria-label="Dribbble"><i class="fa-brands fa-dribbble"></i></a>
-      </div>
-      <div class="stats">
-        <div class="stat"><b>3+ Tahun</b><span>Pengalaman</span></div>
-        <div class="stat"><b>25+ Project</b><span>Selesai Dikerjakan</span></div>
-        <div class="stat"><b>15+ Klien</b><span>Puas & Repeat Order</span></div>
-      </div>
-    </div>
+    </header>
 
-    <div class="hero-photo">
-      <div class="float float1"><i class="fa-brands fa-react" style="color:#61dafb"></i> React Developer</div>
-      <div class="float float2"><i class="fa-solid fa-pen-nib" style="color:#f59e0b"></i> UI / UX Design</div>
-      <div class="photo-card">
-        <!-- FOTO UTAMA: letakkan file Juan.png di folder yang sama dengan file HTML ini -->
-        <img src="Juan.png" alt="Foto Juan Suryadharma">
-        <div class="photo-info">
-          <div><b>Juan Suryadharma</b><span>📍 Indonesia • Web Developer</span></div>
-          <span class="avail">● Available</span>
+    <!-- HERO -->
+    <div class="hero" id="beranda">
+      <div class="container hero-grid">
+        <div>
+          <span class="badge"
+            ><i class="fa-solid fa-circle"></i> Tersedia untuk Project &
+            Freelance</span
+          >
+          <h1>
+            Halo, Saya<br />Juan Suryadharma<span>.</span><br />Web Developer
+            &<br />UI Designer.
+          </h1>
+          <p>
+            Saya membantu brand & bisnis membangun website yang cepat, modern,
+            dan enak dilihat — dari landing page, company profile, sampai web
+            app. Fokus di tampilan rapi, pengalaman pengguna, dan hasil yang
+            siap dipakai.
+          </p>
+          <div class="hero-actions">
+            <a href="#project" class="btn btn-primary"
+              ><i class="fa-solid fa-briefcase"></i> Lihat Portfolio</a
+            >
+            <a href="#kontak" class="btn btn-outline"
+              ><i class="fa-solid fa-paper-plane"></i> Hubungi Saya</a
+            >
+          </div>
+          <div class="socials">
+            <a href="#" aria-label="Instagram"
+              ><i class="fa-brands fa-instagram"></i
+            ></a>
+            <a href="#" aria-label="GitHub"
+              ><i class="fa-brands fa-github"></i
+            ></a>
+            <a href="#" aria-label="LinkedIn"
+              ><i class="fa-brands fa-linkedin"></i
+            ></a>
+            <a href="#" aria-label="WhatsApp"
+              ><i class="fa-brands fa-whatsapp"></i
+            ></a>
+            <a href="#" aria-label="Dribbble"
+              ><i class="fa-brands fa-dribbble"></i
+            ></a>
+          </div>
+          <div class="stats">
+            <div class="stat"><b>3+ Tahun</b><span>Pengalaman</span></div>
+            <div class="stat">
+              <b>25+ Project</b><span>Selesai Dikerjakan</span>
+            </div>
+            <div class="stat">
+              <b>15+ Klien</b><span>Puas & Repeat Order</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-photo">
+          <div class="float float1">
+            <i class="fa-brands fa-react" style="color: #61dafb"></i> React
+            Developer
+          </div>
+          <div class="float float2">
+            <i class="fa-solid fa-pen-nib" style="color: #f59e0b"></i> UI / UX
+            Design
+          </div>
+          <div class="photo-card">
+            <!-- FOTO UTAMA: letakkan file Juan.png di folder yang sama dengan file HTML ini -->
+            <img src="Juan.png" alt="Foto Juan Suryadharma" />
+            <div class="photo-info">
+              <div>
+                <b>Andhika ATha Pratama Nasution</b
+                ><span>📍 Indonesia • Web Developer</span>
+              </div>
+              <span class="avail">● Available</span>
+            </div>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</div>
 
-<!-- TENTANG -->
-<section id="tentang">
-  <div class="container">
-    <div class="sec-head"><small>Tentang Saya</small><h2>Bukan sekadar coding, tapi membangun produk yang dipakai.</h2><p>Saya Juan Suryadharma, developer yang suka menggabungkan logika dan desain. Setiap project saya kerjakan dari riset, wireframe, sampai deploy.</p></div>
-    <div class="grid3">
-      <div class="card"><div class="icon"><i class="fa-solid fa-laptop-code" style="color:#facc15"></i></div><h3>Web Development</h3><p>Website responsif, cepat, dan SEO friendly menggunakan HTML, CSS, JavaScript, React & Node.js.</p></div>
-      <div class="card"><div class="icon"><i class="fa-solid fa-mobile-screen-button" style="color:#38bdf8"></i></div><h3>Responsive Design</h3><p>Tampilan sempurna di HP, tablet, dan desktop. Mobile-first adalah standar di semua project saya.</p></div>
-      <div class="card"><div class="icon"><i class="fa-solid fa-rocket" style="color:#a78bfa"></i></div><h3>Performance</h3><p>Optimasi loading, gambar, dan struktur kode agar website ringan dan nyaman digunakan.</p></div>
-    </div>
-  </div>
-</section>
-
-<!-- KEAHLIAN / LOGO REAL -->
-<section id="keahlian" style="background:#12141a;border-block:1px solid var(--line)">
-  <div class="container">
-    <div class="sec-head"><small>Keahlian & Tools</small><h2>Tech Stack yang Saya Pakai</h2><p>Logo di bawah adalah logo brand asli via Font Awesome — bukan gambar tempelan.</p></div>
-    <div class="grid3">
-      <div class="skill"><i class="fa-brands fa-html5"></i><div><b>HTML5</b><span>Semantic • SEO • Aksesibilitas</span></div></div>
-      <div class="skill"><i class="fa-brands fa-css3-alt"></i><div><b>CSS3</b><span>Flexbox • Grid • Animation</span></div></div>
-      <div class="skill"><i class="fa-brands fa-js"></i><div><b>JavaScript</b><span>ES6+ • DOM • API</span></div></div>
-      <div class="skill"><i class="fa-brands fa-react"></i><div><b>React</b><span>Component • Hooks • Vite</span></div></div>
-      <div class="skill"><i class="fa-brands fa-node-js"></i><div><b>Node.js</b><span>Backend • REST API</span></div></div>
-      <div class="skill"><i class="fa-brands fa-python"></i><div><b>Python</b><span>Scripting • Automation</span></div></div>
-      <div class="skill"><i class="fa-brands fa-bootstrap"></i><div><b>Bootstrap</b><span>UI Framework</span></div></div>
-      <div class="skill"><i class="fa-brands fa-git-alt"></i><div><b>Git & GitHub</b><span>Version Control</span></div></div>
-      <div class="skill"><i class="fa-brands fa-figma"></i><div><b>Figma</b><span>UI Design • Prototyping</span></div></div>
-    </div>
-    <div style="display:flex;gap:14px;flex-wrap:wrap;margin-top:20px;color:#cbd5e1;font-size:28px">
-      <i class="fa-brands fa-github"></i><i class="fa-brands fa-gitlab" style="color:#fc6d26"></i><i class="fa-brands fa-npm" style="color:#cb3837"></i><i class="fa-brands fa-wordpress" style="color:#21759b"></i><i class="fa-brands fa-laravel" style="color:#ff2d20"></i><i class="fa-brands fa-php" style="color:#777bb4"></i><i class="fa-brands fa-docker" style="color:#2496ed"></i><i class="fa-brands fa-linux" style="color:#fff"></i><i class="fa-brands fa-windows" style="color:#00adef"></i><i class="fa-brands fa-apple"></i><i class="fa-brands fa-android" style="color:#3ddc84"></i><i class="fa-brands fa-chrome" style="color:#facc15"></i>
-    </div>
-  </div>
-</section>
-
-<!-- PROJECT -->
-<section id="project">
-  <div class="container">
-    <div class="sec-head"><small>Portfolio Pilihan</small><h2>Project Terbaru</h2></div>
-    <div class="grid3">
-      <article class="card project"><div class="project-top p1"><i class="fa-solid fa-cart-shopping"></i></div><div class="project-body"><h3>Website Toko Online</h3><p>Website e-commerce dengan katalog, keranjang, checkout, dan dashboard admin.</p><div class="tags"><span>React</span><span>Node.js</span><span>MySQL</span></div></div></article>
-      <article class="card project"><div class="project-top p2"><i class="fa-solid fa-building"></i></div><div class="project-body"><h3>Company Profile</h3><p>Website perusahaan modern dengan animasi halus, halaman layanan, dan form kontak WhatsApp.</p><div class="tags"><span>HTML</span><span>CSS</span><span>JavaScript</span></div></div></article>
-      <article class="card project"><div class="project-top p3"><i class="fa-solid fa-chart-line"></i></div><div class="project-body"><h3>Dashboard Admin</h3><p>Dashboard data real-time dengan grafik, tabel, laporan, dan manajemen pengguna.</p><div class="tags"><span>React</span><span>API</span><span>Chart.js</span></div></div></article>
-    </div>
-  </div>
-</section>
-
-<!-- PENGALAMAN -->
-<section id="pengalaman" style="padding-top:0">
-  <div class="container grid2">
-    <div>
-      <div class="sec-head"><small>Perjalanan</small><h2>Pengalaman</h2></div>
-      <div class="timeline">
-        <div class="t-item"><i class="fa-solid fa-briefcase"></i><div><b>Freelance Web Developer</b><br><span>2023 — Sekarang • Remote</span><p style="color:var(--muted);font-size:14px;margin-top:4px">Mengerjakan landing page, company profile, dan web app untuk UMKM & personal brand.</p></div></div>
-        <div class="t-item"><i class="fa-solid fa-pen-ruler"></i><div><b>UI Designer</b><br><span>2022 — 2023 • Project Based</span><p style="color:var(--muted);font-size:14px;margin-top:4px">Desain interface di Figma, design system, dan prototype interaktif.</p></div></div>
+    <!-- TENTANG -->
+    <section id="tentang">
+      <div class="container">
+        <div class="sec-head">
+          <small>Tentang Saya</small>
+          <h2>Bukan sekadar coding, tapi membangun produk yang dipakai.</h2>
+          <p>
+            Saya Juan Suryadharma, developer yang suka menggabungkan logika dan
+            desain. Setiap project saya kerjakan dari riset, wireframe, sampai
+            deploy.
+          </p>
+        </div>
+        <div class="grid3">
+          <div class="card">
+            <div class="icon">
+              <i class="fa-solid fa-laptop-code" style="color: #facc15"></i>
+            </div>
+            <h3>Web Development</h3>
+            <p>
+              Website responsif, cepat, dan SEO friendly menggunakan HTML, CSS,
+              JavaScript, React & Node.js.
+            </p>
+          </div>
+          <div class="card">
+            <div class="icon">
+              <i
+                class="fa-solid fa-mobile-screen-button"
+                style="color: #38bdf8"
+              ></i>
+            </div>
+            <h3>Responsive Design</h3>
+            <p>
+              Tampilan sempurna di HP, tablet, dan desktop. Mobile-first adalah
+              standar di semua project saya.
+            </p>
+          </div>
+          <div class="card">
+            <div class="icon">
+              <i class="fa-solid fa-rocket" style="color: #a78bfa"></i>
+            </div>
+            <h3>Performance</h3>
+            <p>
+              Optimasi loading, gambar, dan struktur kode agar website ringan
+              dan nyaman digunakan.
+            </p>
+          </div>
+        </div>
       </div>
-    </div>
-    <div>
-      <div class="sec-head"><small>Layanan</small><h2>Yang Bisa Saya Bantu</h2></div>
-      <div class="timeline">
-        <div class="t-item"><i class="fa-solid fa-globe"></i><div><b>Pembuatan Website</b><br><span>Mulai dari konsep sampai online</span></div></div>
-        <div class="t-item"><i class="fa-solid fa-wand-magic-sparkles"></i><div><b>Redesign Website Lama</b><br><span>Tampilan baru, lebih modern & cepat</span></div></div>
-        <div class="t-item"><i class="fa-solid fa-screwdriver-wrench"></i><div><b>Maintenance & Perbaikan</b><br><span>Bug fix, update konten, optimasi</span></div></div>
+    </section>
+
+    <!-- KEAHLIAN / LOGO REAL -->
+    <section
+      id="keahlian"
+      style="background: #12141a; border-block: 1px solid var(--line)"
+    >
+      <div class="container">
+        <div class="sec-head">
+          <small>Keahlian & Tools</small>
+          <h2>Tech Stack yang Saya Pakai</h2>
+          <p>
+            Logo di bawah adalah logo brand asli via Font Awesome — bukan gambar
+            tempelan.
+          </p>
+        </div>
+        <div class="grid3">
+          <div class="skill">
+            <i class="fa-brands fa-html5"></i>
+            <div><b>HTML5</b><span>Semantic • SEO • Aksesibilitas</span></div>
+          </div>
+          <div class="skill">
+            <i class="fa-brands fa-css3-alt"></i>
+            <div><b>CSS3</b><span>Flexbox • Grid • Animation</span></div>
+          </div>
+          <div class="skill">
+            <i class="fa-brands fa-js"></i>
+            <div><b>JavaScript</b><span>ES6+ • DOM • API</span></div>
+          </div>
+          <div class="skill">
+            <i class="fa-brands fa-react"></i>
+            <div><b>React</b><span>Component • Hooks • Vite</span></div>
+          </div>
+          <div class="skill">
+            <i class="fa-brands fa-node-js"></i>
+            <div><b>Node.js</b><span>Backend • REST API</span></div>
+          </div>
+          <div class="skill">
+            <i class="fa-brands fa-python"></i>
+            <div><b>Python</b><span>Scripting • Automation</span></div>
+          </div>
+          <div class="skill">
+            <i class="fa-brands fa-bootstrap"></i>
+            <div><b>Bootstrap</b><span>UI Framework</span></div>
+          </div>
+          <div class="skill">
+            <i class="fa-brands fa-git-alt"></i>
+            <div><b>Git & GitHub</b><span>Version Control</span></div>
+          </div>
+          <div class="skill">
+            <i class="fa-brands fa-figma"></i>
+            <div><b>Figma</b><span>UI Design • Prototyping</span></div>
+          </div>
+        </div>
+        <div
+          style="
+            display: flex;
+            gap: 14px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+            color: #cbd5e1;
+            font-size: 28px;
+          "
+        >
+          <i class="fa-brands fa-github"></i
+          ><i class="fa-brands fa-gitlab" style="color: #fc6d26"></i
+          ><i class="fa-brands fa-npm" style="color: #cb3837"></i
+          ><i class="fa-brands fa-wordpress" style="color: #21759b"></i
+          ><i class="fa-brands fa-laravel" style="color: #ff2d20"></i
+          ><i class="fa-brands fa-php" style="color: #777bb4"></i
+          ><i class="fa-brands fa-docker" style="color: #2496ed"></i
+          ><i class="fa-brands fa-linux" style="color: #fff"></i
+          ><i class="fa-brands fa-windows" style="color: #00adef"></i
+          ><i class="fa-brands fa-apple"></i
+          ><i class="fa-brands fa-android" style="color: #3ddc84"></i
+          ><i class="fa-brands fa-chrome" style="color: #facc15"></i>
+        </div>
       </div>
-    </div>
-  </div>
-</section>
+    </section>
 
-<!-- KONTAK -->
-<section id="kontak" style="padding-top:0">
-  <div class="container">
-    <div class="contact">
-      <div><h2>Punya project atau ide website?<br>Yuk, wujudkan bareng.</h2><p>Ceritakan kebutuhanmu, saya bantu buatkan konsep, estimasi biaya, dan timeline pengerjaannya — gratis konsultasi.</p><br><a href="https://wa.me/6280000000000" class="btn"><i class="fa-brands fa-whatsapp"></i> Chat WhatsApp</a></div>
-      <div class="info-list">
-        <div><i class="fa-solid fa-envelope"></i> juan.suryadharma@email.com</div>
-        <div><i class="fa-brands fa-instagram"></i> @juan.suryadharma</div>
-        <div><i class="fa-brands fa-github"></i> github.com/juansuryadharma</div>
-        <div><i class="fa-brands fa-linkedin"></i> linkedin.com/in/juansuryadharma</div>
-        <div><i class="fa-solid fa-location-dot"></i> Indonesia • Remote Worldwide</div>
+    <!-- PROJECT -->
+    <section id="project">
+      <div class="container">
+        <div class="sec-head">
+          <small>Portfolio Pilihan</small>
+          <h2>Project Terbaru</h2>
+        </div>
+        <div class="grid3">
+          <article class="card project">
+            <div class="project-top p1">
+              <i class="fa-solid fa-cart-shopping"></i>
+            </div>
+            <div class="project-body">
+              <h3>Website Toko Online</h3>
+              <p>
+                Website e-commerce dengan katalog, keranjang, checkout, dan
+                dashboard admin.
+              </p>
+              <div class="tags">
+                <span>React</span><span>Node.js</span><span>MySQL</span>
+              </div>
+            </div>
+          </article>
+          <article class="card project">
+            <div class="project-top p2">
+              <i class="fa-solid fa-building"></i>
+            </div>
+            <div class="project-body">
+              <h3>Company Profile</h3>
+              <p>
+                Website perusahaan modern dengan animasi halus, halaman layanan,
+                dan form kontak WhatsApp.
+              </p>
+              <div class="tags">
+                <span>HTML</span><span>CSS</span><span>JavaScript</span>
+              </div>
+            </div>
+          </article>
+          <article class="card project">
+            <div class="project-top p3">
+              <i class="fa-solid fa-chart-line"></i>
+            </div>
+            <div class="project-body">
+              <h3>Dashboard Admin</h3>
+              <p>
+                Dashboard data real-time dengan grafik, tabel, laporan, dan
+                manajemen pengguna.
+              </p>
+              <div class="tags">
+                <span>React</span><span>API</span><span>Chart.js</span>
+              </div>
+            </div>
+          </article>
+        </div>
       </div>
-    </div>
-  </div>
-</section>
+    </section>
 
-<footer>
-  <div class="container foot">
-    <span>© 2026 Juan Suryadharma. All rights reserved.</span>
-    <span>Dibuat dengan <i class="fa-solid fa-heart" style="color:#ef4444"></i> menggunakan HTML, CSS & Font Awesome</span>
-    <span><i class="fa-brands fa-html5" style="color:#e34f26"></i> <i class="fa-brands fa-css3-alt" style="color:#1572b6"></i> <i class="fa-brands fa-js" style="color:#f7df1e"></i></span>
-  </div>
-</footer>
+    <!-- PENGALAMAN -->
+    <section id="pengalaman" style="padding-top: 0">
+      <div class="container grid2">
+        <div>
+          <div class="sec-head">
+            <small>Perjalanan</small>
+            <h2>Pengalaman</h2>
+          </div>
+          <div class="timeline">
+            <div class="t-item">
+              <i class="fa-solid fa-briefcase"></i>
+              <div>
+                <b>Freelance Web Developer</b><br /><span
+                  >2023 — Sekarang • Remote</span
+                >
+                <p
+                  style="color: var(--muted); font-size: 14px; margin-top: 4px"
+                >
+                  Mengerjakan landing page, company profile, dan web app untuk
+                  UMKM & personal brand.
+                </p>
+              </div>
+            </div>
+            <div class="t-item">
+              <i class="fa-solid fa-pen-ruler"></i>
+              <div>
+                <b>UI Designer</b><br /><span>2022 — 2023 • Project Based</span>
+                <p
+                  style="color: var(--muted); font-size: 14px; margin-top: 4px"
+                >
+                  Desain interface di Figma, design system, dan prototype
+                  interaktif.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div class="sec-head">
+            <small>Layanan</small>
+            <h2>Yang Bisa Saya Bantu</h2>
+          </div>
+          <div class="timeline">
+            <div class="t-item">
+              <i class="fa-solid fa-globe"></i>
+              <div>
+                <b>Pembuatan Website</b><br /><span
+                  >Mulai dari konsep sampai online</span
+                >
+              </div>
+            </div>
+            <div class="t-item">
+              <i class="fa-solid fa-wand-magic-sparkles"></i>
+              <div>
+                <b>Redesign Website Lama</b><br /><span
+                  >Tampilan baru, lebih modern & cepat</span
+                >
+              </div>
+            </div>
+            <div class="t-item">
+              <i class="fa-solid fa-screwdriver-wrench"></i>
+              <div>
+                <b>Maintenance & Perbaikan</b><br /><span
+                  >Bug fix, update konten, optimasi</span
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-</body>
+    <!-- KONTAK -->
+    <section id="kontak" style="padding-top: 0">
+      <div class="container">
+        <div class="contact">
+          <div>
+            <h2>Punya project atau ide website?<br />Yuk, wujudkan bareng.</h2>
+            <p>
+              Ceritakan kebutuhanmu, saya bantu buatkan konsep, estimasi biaya,
+              dan timeline pengerjaannya — gratis konsultasi.
+            </p>
+            <br /><a href="https://wa.me/6280000000000" class="btn"
+              ><i class="fa-brands fa-whatsapp"></i> Chat WhatsApp</a
+            >
+          </div>
+          <div class="info-list">
+            <div>
+              <i class="fa-solid fa-envelope"></i> juan.suryadharma@email.com
+            </div>
+            <div><i class="fa-brands fa-instagram"></i> @juan.suryadharma</div>
+            <div>
+              <i class="fa-brands fa-github"></i> github.com/juansuryadharma
+            </div>
+            <div>
+              <i class="fa-brands fa-linkedin"></i>
+              linkedin.com/in/juansuryadharma
+            </div>
+            <div>
+              <i class="fa-solid fa-location-dot"></i> Indonesia • Remote
+              Worldwide
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="container foot">
+        <span>© 2026 Juan Suryadharma. All rights reserved.</span>
+        <span
+          >Dibuat dengan
+          <i class="fa-solid fa-heart" style="color: #ef4444"></i> menggunakan
+          HTML, CSS & Font Awesome</span
+        >
+        <span
+          ><i class="fa-brands fa-html5" style="color: #e34f26"></i>
+          <i class="fa-brands fa-css3-alt" style="color: #1572b6"></i>
+          <i class="fa-brands fa-js" style="color: #f7df1e"></i
+        ></span>
+      </div>
+    </footer>
+  </body>
 </html>
